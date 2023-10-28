@@ -133,6 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUser'
 
 CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = ['reactipe-1fcd5773eea7.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Email config
