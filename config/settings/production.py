@@ -14,6 +14,11 @@ INSTALLED_APPS += [
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static'),  # Replace 'path_to_your_react_app' with the relative path to your React app's build folder
+]
+
 # Cloudinary configs
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
