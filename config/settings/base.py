@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 PROJECT_ROOT = Path(BASE_DIR).resolve().parent
-STATIC_ROOT = os.path.join(BASE_DIR, 'build/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'build')
 
 
 # Default primary key field type
