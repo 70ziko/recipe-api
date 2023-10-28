@@ -8,6 +8,7 @@ ALLOWED_HOSTS = ['recipe-backend-api.herokuapp.com', 'reactipe-1fcd5773eea7.hero
 INSTALLED_APPS += [
     'cloudinary_storage',
     'cloudinary',
+    'drf_spectacular',
 ]
 
 # Media
@@ -26,5 +27,13 @@ CLOUDINARY_STORAGE = {
     'API_KEY': config('CLOUDINARY_API_SECRET'),
     'API_SECRET': config('CLOUDINARY_API_KEY')
 }
+
+# DRF Spectacular
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'reactipe API',
+    'DESCRIPTION': 'Your API description',
+    # Other settings...
+}
+
 
 django_heroku.settings(locals())
