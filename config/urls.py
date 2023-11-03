@@ -1,4 +1,5 @@
 import re
+from django.views.generic import TemplateView
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
@@ -12,6 +13,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/user/password/reset/',
          include('django_rest_passwordreset.urls', namespace='password_reset')),
+# ]
     re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
@@ -24,6 +26,7 @@ urlpatterns += [
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('', SpectacularSwaggerView.as_view(
         url_name='schema'), name='swagger-ui'),
+    # path('build', )
     # re_path(r'^.*$', serve, kwargs={'path': 'index.html'}),
     # path('schema/', SpectacularAPIView.as_view(), name='schema'),
     # path('schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
