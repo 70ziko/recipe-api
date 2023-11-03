@@ -17,9 +17,15 @@ urlpatterns = [
 #     re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
 # ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
+# urlpatterns += [
+#     re_path(r'^(?!api/).*$', RedirectView.as_view(url='/static/index.html', permanent=False)),
+# ]
+
 urlpatterns += [
-    re_path(r'^(?!api/).*$', RedirectView.as_view(url='/static/index.html', permanent=False)),
-]
+        re_path(r'^static/(?P<path>.*)$', serve, kwargs={'insecure': True}),
+        re_path(r'^(?!api/).*$',
+                RedirectView.as_view(url='/build/static/index.html', permanent=False)),
+    ]
 
 # Media Assets
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
