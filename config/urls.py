@@ -14,6 +14,7 @@ urlpatterns = [
          include('django_rest_passwordreset.urls', namespace='password_reset')),
 ]
 
+
 # Media Assets
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

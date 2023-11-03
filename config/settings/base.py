@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['js', 'css', 'json', 'ico', 'png', 'svg', 'gif', 'jpeg', 'jpg', 'webp']
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
