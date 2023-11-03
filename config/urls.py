@@ -12,7 +12,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/user/password/reset/',
          include('django_rest_passwordreset.urls', namespace='password_reset')),
-]
+    re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 # Media Assets
