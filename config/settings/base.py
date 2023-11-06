@@ -4,7 +4,7 @@ from datetime import timedelta
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['js', 'css', 'json', 'ico', 'png', 'svg', 'gif', 'jpeg', 'jpg', 'webp']
+WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['json', 'ico', 'png', 'svg', 'gif', 'jpeg', 'jpg', 'webp']
 
 ROOT_URLCONF = 'config.urls'
 
@@ -123,9 +123,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = 'frontend/build/static'
+STATIC_URL = '/static/'
 PROJECT_ROOT = Path(BASE_DIR).resolve().parent
-STATIC_ROOT = os.path.join(BASE_DIR, 'build')
+STATIC_ROOT = os.path.join(BASE_DIR, 'frontend', 'build')
 
 
 # Default primary key field type
