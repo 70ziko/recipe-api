@@ -4,6 +4,8 @@ from pathlib import Path
 from django.views.generic import RedirectView
 from django.contrib import admin
 from django.contrib.staticfiles.views import serve
+from django.views.static import serve as static_serve
+from django.http import HttpResponse
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,11 +28,22 @@ urlpatterns = [
 
 INDEX_DIR = Path(__file__).resolve().parent.parent / 'frontend' / 'build'
 
+def serve_frontend(request):
+    index_path = os.path.join(INDEX_DIR, 'index.html')
+    with open(index_path, 'r') as file:
+        return HttpResponse(file.read(), content_type='text/html')
+
 urlpatterns += [
-        re_path(r'^static/(?P<path>.*)$', serve, kwargs={'insecure': True}),
-        re_path(r'^(?!api/).*$',
-                RedirectView.as_view(url=os.path.join(INDEX_DIR, 'index.html'), permanent=False)),
-    ]
+    # ... your other url patterns
+    re_path(r'^(?!api/).*$',
+            serve_frontend),
+]
+
+# urlpatterns += [
+#         re_path(r'^static/(?P<path>.*)$', serve, kwargs={'insecure': True}),
+#         re_path(r'^(?!api/).*$',
+#                 RedirectView.as_view(url=os.path.join(INDEX_DIR, 'index.html'), permanent=False)),
+#     ]
 
 # Media Assets
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
