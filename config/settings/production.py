@@ -11,6 +11,8 @@ INSTALLED_APPS += [
     # 'drf_spectacular',
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 # Media
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
