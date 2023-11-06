@@ -1,6 +1,5 @@
 
 import os
-import re
 from pathlib import Path
 from django.views.generic import RedirectView
 from django.contrib import admin
@@ -25,7 +24,7 @@ urlpatterns = [
 #     re_path(r'^(?!api/).*$', RedirectView.as_view(url='/static/index.html', permanent=False)),
 # ]
 
-INDEX_DIR = Path(__file__).resolve().parent.parent.parent / 'frontend' / 'build'
+INDEX_DIR = Path(__file__).resolve().parent.parent / 'frontend' / 'build'
 
 urlpatterns += [
         re_path(r'^static/(?P<path>.*)$', serve, kwargs={'insecure': True}),
