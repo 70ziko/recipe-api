@@ -26,7 +26,7 @@ urlpatterns = [
 #     re_path(r'^(?!api/).*$', RedirectView.as_view(url='/static/index.html', permanent=False)),
 # ]
 
-INDEX_DIR = Path(__file__).resolve().parent.parent / 'frontend' / 'build'
+INDEX_DIR = Path(__file__).resolve().parent.parent.parent / 'frontend' / 'build'
 
 def serve_frontend(request):
     index_path = os.path.join(INDEX_DIR, 'index.html')
@@ -47,6 +47,13 @@ urlpatterns += [
 
 # Media Assets
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Serving static files in production (not recommended, but for Heroku you might do this):
+if settings.DEBUG is False:
+    urlpatterns += [
+        re_path(r'^static/(?P<path>.*)$', static_serve, {'document_root': settings.STATIC_ROOT}),
+    ]
+
 
 # Schema URLs
 urlpatterns += [
