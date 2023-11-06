@@ -1,4 +1,7 @@
+
+import os
 import re
+from pathlib import Path
 from django.views.generic import RedirectView
 from django.contrib import admin
 from django.contrib.staticfiles.views import serve
@@ -22,10 +25,12 @@ urlpatterns = [
 #     re_path(r'^(?!api/).*$', RedirectView.as_view(url='/static/index.html', permanent=False)),
 # ]
 
+INDEX_DIR = Path(__file__).resolve().parent.parent.parent / 'frontend' / 'build'
+
 urlpatterns += [
         re_path(r'^static/(?P<path>.*)$', serve, kwargs={'insecure': True}),
         re_path(r'^(?!api/).*$',
-                RedirectView.as_view(url='/frontend/build/index.html', permanent=False)),
+                RedirectView.as_view(url=os.path.join(INDEX_DIR, 'index.html'), permanent=False)),
     ]
 
 # Media Assets
