@@ -25,7 +25,7 @@ urlpatterns = [
 urlpatterns += [
         re_path(r'^static/(?P<path>.*)$', serve, kwargs={'insecure': True}),
         re_path(r'^(?!api/).*$',
-                RedirectView.as_view(url='/build/static/index.html', permanent=False)),
+                RedirectView.as_view(url='/frontend/build/index.html', permanent=False)),
     ]
 
 # Media Assets
