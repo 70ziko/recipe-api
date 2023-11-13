@@ -1,6 +1,6 @@
 # Recipe Sharing API
 
-This API allows users to share recipes and find recipes. It is developed using Django rest framework. You can find the api [here](https://recipe-backend-api.herokuapp.com/).
+This API allows users to share recipes and find recipes. It is developed using Django rest framework. You can find the api [here](https://reactipe-1fcd5773eea7.herokuapp.com/).
 
 ## Basic Features
 
