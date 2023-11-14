@@ -19,14 +19,8 @@ urlpatterns = [
     path('api/user/password/reset/',
          include('django_rest_passwordreset.urls', namespace='password_reset')),
 ]
-#     re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
-# ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-# urlpatterns += [
-#     re_path(r'^(?!api/).*$', RedirectView.as_view(url='/static/index.html', permanent=False)),
-# ]
-
-INDEX_DIR = Path(__file__).resolve().parent / 'config' / 'frontend' / 'build'
+INDEX_DIR = Path(__file__).resolve().parent / 'frontend' / 'build'
 
 def serve_frontend(request):
     index_path = os.path.join(INDEX_DIR, 'index.html')
@@ -39,12 +33,6 @@ urlpatterns += [
             serve_frontend),
 ]
 
-
-# urlpatterns += [
-#         re_path(r'^static/(?P<path>.*)$', serve, kwargs={'insecure': True}),
-#         re_path(r'^(?!api/).*$',
-#                 RedirectView.as_view(url=os.path.join(INDEX_DIR, 'index.html'), permanent=False)),
-#     ]
 
 # Media Assets
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
