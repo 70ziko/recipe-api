@@ -20,7 +20,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATIC_URL = '/static/'
 PROJECT_ROOT = Path(BASE_DIR).resolve().parent
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),  # Replace 'path_to_your_react_app' with the relative path to your React app's build folder
+    os.path.join(BASE_DIR, 'config', 'frontend', 'build', 'static'),  # Replace 'path_to_your_react_app' with the relative path to your React app's build folder
 ]
 
 # Cloudinary configs
