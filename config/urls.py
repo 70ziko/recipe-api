@@ -26,7 +26,7 @@ urlpatterns = [
 #     re_path(r'^(?!api/).*$', RedirectView.as_view(url='/static/index.html', permanent=False)),
 # ]
 
-INDEX_DIR = Path(__file__).resolve().parent.parent / 'frontend' / 'build'
+INDEX_DIR = Path(__file__).resolve().parent / 'frontend' / 'build'
 
 def serve_frontend(request):
     index_path = os.path.join(INDEX_DIR, 'index.html')

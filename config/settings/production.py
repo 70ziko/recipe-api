@@ -3,7 +3,7 @@ import django_heroku
 
 
 DEBUG = False
-ALLOWED_HOSTS = ['reactipe-1fcd5773eea7.herokuapp.com', 'reactipe-1fcd5773eea7.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['reactipe-1fcd5773eea7.herokuapp.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS += [
     'cloudinary_storage',
