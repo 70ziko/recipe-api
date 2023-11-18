@@ -55,7 +55,9 @@ if not IS_HEROKU_APP:
 if IS_HEROKU_APP:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["127.0.0.1", "reactipe-1fcd5773eea7.herokuapp.com"]
+
+# change later to whitelist
 
 AUTH_USER_MODEL = 'users.CustomUser'
 # Application definition
@@ -72,7 +74,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "debug_toolbar",
+    # "debug_toolbar",
     # Third-party apps
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
@@ -186,6 +188,9 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'gettingstarted', 'frontend', 'build', 'static'),  # WTF is wrong with this path?
+]
 
 STORAGES = {
     # Enable WhiteNoise's GZip and Brotli compression of static assets:
