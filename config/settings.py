@@ -58,14 +58,14 @@ else:
 
 # change later to whitelist
 
-# For development (allow all origins)
-CORS_ALLOW_ALL_ORIGINS = True
+# # For development (allow all origins)
+# CORS_ALLOW_ALL_ORIGINS = True
 
-# For production (list specific origins)
-CORS_ALLOWED_ORIGINS = [
-    "https://reactipe-1fcd5773eea7.herokuapp.com/",
-    # ... other allowed domains ...
-]
+# # For production (list specific origins)
+# CORS_ALLOWED_ORIGINS = [
+#     "https://reactipe-1fcd5773eea7.herokuapp.com/",
+#     # ... other allowed domains ...
+# ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 # Application definition
@@ -197,8 +197,10 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'config', 'frontend', 'build', 'static'),  # WTF is wrong with this path?
+    os.path.join(BASE_DIR, 'config', 'frontend', 'build', 'static'), 
+    os.path.join(BASE_DIR, 'build', 'static'),
 ]
+
 
 STORAGES = {
     # Enable WhiteNoise's GZip and Brotli compression of static assets:
