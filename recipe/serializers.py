@@ -6,7 +6,7 @@ from .models import Recipe, RecipeCategory, RecipeLike
 class RecipeCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = RecipeCategory
-        fields = ('id', 'name')
+        fields = ('name',)
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -34,6 +34,26 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     def get_total_number_of_bookmarks(self, obj):
         return obj.get_total_number_of_bookmarks()
+
+    # def to_representation(self, obj):
+    #     """Move fields from profile to user representation."""
+    #     representation = super().to_representation(obj)
+    #     category_representation = representation.pop('category')
+    #     for key in category_representation:
+    #         representation[key] = category_representation[key]
+    #     return representation
+
+    def to_internal_value(self, data):
+        """Move fields related to profile to their own profile dictionary."""
+        data = data.dict()
+        category_internal = {}
+        for key in RecipeCategorySerializer.Meta.fields:
+            if key in data:
+                category_internal[key] = data.pop(key)
+        data["category"] = category_internal
+        internal = super().to_internal_value(data)
+        internal['category'] = category_internal
+        return internal
 
     def create(self, validated_data):
         category = validated_data.pop('category')

@@ -1,48 +1,21 @@
-# Recipe Sharing API
+# Python: Getting Started
 
-This API allows users to share recipes and find recipes. It is developed using Django rest framework. You can find the api [here](https://reactipe-1fcd5773eea7.herokuapp.com/).
+A barebones Django app, which can easily be deployed to Heroku.
 
-## Basic Features
+## Deploying to Heroku
 
-- Custom `User` model and authentication using email and password.
-- JWT authentication.
-- CRUD endpoints for recipe.
-- Search functionality for recipes.
-- Password reset functionality.
-- Documentation using `drf_spectacular` which support OAS3.
-- Unit test using coverage and factory boy.
-- Frontend is built using React.js and can be found [here](https://github.com/earthcomfy/Recipe-app).
+Using resources for this example app counts towards your usage. [Delete your app](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-destroy) and [database](https://devcenter.heroku.com/articles/heroku-postgresql#removing-the-add-on) as soon as you are done experimenting to control costs.
 
-## Quick Start
+By default, apps use Eco dynos if you are subscribed to Eco. Otherwise, it defaults to Basic dynos. The Eco dynos plan is shared across all Eco dynos in your account and is recommended if you plan on deploying many small apps to Heroku. Learn more about our low-cost plans [here](https://blog.heroku.com/new-low-cost-plans).
 
-To get this project up and running locally on your computer follow the following steps.
+Eligible students can apply for platform credits through our new [Heroku for GitHub Students program](https://blog.heroku.com/github-student-developer-program).
 
-1. Clone this repository to your local machine.
-2. Create a python virtual environment and activate it.
-3. Open up your terminal and run the following command to install the packages used in this project.
+This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out for instructions on how to deploy this app to Heroku and also run it locally.
 
-```
-$ pip install -r requirements.txt
-```
+Alternatively, you can deploy it using this Heroku Button:
 
-4. Set up a Postgres database for the project.
-5. Rename the `.env.example` file found in the root directory of the project to `.env` and update
-   the environment variables accordingly. **Note:** For local development, leave the Cloudinary configs empty.
-6. Run the following commands to setup the database tables and create a super user.
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/heroku/python-getting-started)
 
-```
-$ python manage.py migrate
-$ python manage.py createsuperuser
-```
+For more information about using Python on Heroku, see these Dev Center articles:
 
-7. Run the development server using:
-
-```
-$ python manage.py runserver
-```
-
-8. Open a browser and go to http://localhost:8000/.
-
-## License
-
-Usage is provided under the [MIT License](http://opensource.org/licenses/mit-license.php). See LICENSE for the full details.
+- [Python on Heroku](https://devcenter.heroku.com/categories/python)
