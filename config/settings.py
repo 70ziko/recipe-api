@@ -20,7 +20,6 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', "config")
 
 # Before using your Heroku app in production, make sure to review Django's deployment checklist:
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -64,7 +63,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # For production (list specific origins)
 CORS_ALLOWED_ORIGINS = [
-    "https://yourfrontenddomain.com",
+    "https://reactipe-1fcd5773eea7.herokuapp.com/",
     # ... other allowed domains ...
 ]
 
