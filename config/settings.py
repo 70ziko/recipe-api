@@ -196,11 +196,13 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = "static/"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'config', 'frontend', 'build', 'static'), 
-    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'config', 'frontend', 'build', 'static'), 
+#     os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
+# ]
 
+BAS_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATICFILES_DIRS = [os.path.join(BAS_DIR, 'build/static'),]
 
 STORAGES = {
     # Enable WhiteNoise's GZip and Brotli compression of static assets:
